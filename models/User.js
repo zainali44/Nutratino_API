@@ -11,7 +11,13 @@ const userSchema = new mongoose.Schema({
   age: Number,
   allergies: [String],
   dietary_preferences: [String],
-  health_goals: [String]
+  health_goals: [String],
+  role: { 
+    type: String, 
+    required: true,
+    enum: ['admin', 'trainer', 'customer'],
+    default: 'customer' // Assuming 'customer' is the default role
+  }
 });
 
 // Password hash middleware.
